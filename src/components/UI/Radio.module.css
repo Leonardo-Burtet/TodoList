@@ -1,0 +1,11 @@
+.radio {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.radio p {
+  font-weight: bold;
+}
