@@ -1,0 +1,32 @@
+.main1 {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+
+.tasks {
+  border: 1px solid black;
+  padding: 1rem;
+  font-size: 25px;
+  height: 80%;
+  overflow: hidden;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+}
+.nav a {
+  padding: 20px;
+  border-radius: 2rem;
+}
+
+.wrapper_list {
+  border: 1px solid white;
+}
+
+.ul li {
+  margin: 10px;
+  font-size: 2rem;
+}
