@@ -12,6 +12,16 @@ const Home = () => {
       .then((json) => setTaskList(json));
   }, []);
 
+  function handleClickFinish({ currentTarget }) {
+    fetch(`/api/tasks/${currentTarget.value}`, {
+      method: 'DELETE',
+    });
+
+    fetch('/api/tasks')
+      .then((response) => response.json())
+      .then((json) => setTaskList(json));
+  }
+
   return (
     <main className={styles.main1}>
       <nav className={styles.nav}>
@@ -26,16 +36,26 @@ const Home = () => {
         <h2>Tarefas Ativas</h2>
         <div className={styles.wrapper_list}>
           <ul className={styles.ul}>
-            {taskList && taskList.tasks.length !== 0 ? (
+            {taskList && taskList.tasks.length > 0 ? (
               taskList.tasks.map((item) => (
                 <li key={item.id}>
-                  <p>{item.text}</p>
+                  <p>
+                    <span>Tarefa:</span> {item.text}
+                  </p>
 
-                  <p>{item.prioridade}</p>
+                  <p>
+                    <span>Prioridade:</span> {item.prioridade}
+                  </p>
+                  <div>
+                    <button onClick={handleClickFinish} value={item.id}>
+                      <i className="fas fa-check-square"></i>
+                    </button>
+                  </div>
                 </li>
               ))
             ) : (
               <li>
+                {console.log(taskList)}
                 <p>Não há tarefas pendentes</p>
               </li>
             )}
