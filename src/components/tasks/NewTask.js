@@ -6,17 +6,28 @@ import Input from '../UI/Input';
 import styles from './NewTask.module.css';
 
 const NewTask = () => {
-  const [prioridades, setPrioridades] = React.useState('');
+  const [prioridade, setPrioridade] = React.useState('');
   const [task, setTask] = React.useState('');
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(prioridades);
-    console.log(task);
+    if (prioridade && task) {
+      fetch('/api/tasks', {
+        method: 'POST',
+        body: JSON.stringify({
+          text: task,
+          prioridade: prioridade,
+        }),
+      })
+        .then((res) => res.json())
+        .then((json) => json);
+      setTask('');
+      setPrioridade('');
+    }
   }
 
   return (
-    <main>
+    <main className={styles.main}>
       <nav className={styles.nav}>
         <NavLink to="/home">
           <Button title="Inicio" />
@@ -26,17 +37,22 @@ const NewTask = () => {
           <Button title="Tarefas concluidas" />
         </NavLink>
       </nav>
-      <ul>
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <Input id="Titulo" label="Titulo" value={task} setValue={setTask} />
-          <Radio
-            options={['Alto', 'Medio', 'Baixo']}
-            value={prioridades}
-            setValue={setPrioridades}
-          />
-          <Button title="Adicionar" />
-        </form>
-      </ul>
+
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <Input
+          id="Titulo"
+          label="Titulo"
+          value={task}
+          setValue={setTask}
+          required
+        />
+        <Radio
+          options={['Alto', 'Medio', 'Baixo']}
+          value={prioridade}
+          setValue={setPrioridade}
+        />
+        <Button title="Adicionar" />
+      </form>
     </main>
   );
 };

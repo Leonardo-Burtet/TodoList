@@ -6,10 +6,12 @@
   padding: 20px;
   border-radius: 2rem;
 }
-
 .form {
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
   align-items: center;
-  width: 50%;
+  justify-content: space-around;
+  width: 300px;
+  height: 15vh;
 }

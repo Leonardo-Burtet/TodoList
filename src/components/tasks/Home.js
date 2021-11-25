@@ -4,6 +4,14 @@ import Button from '../UI/Button';
 import styles from './Home.module.css';
 
 const Home = () => {
+  const [taskList, setTaskList] = React.useState(null);
+
+  React.useEffect(() => {
+    fetch('/api/tasks')
+      .then((response) => response.json())
+      .then((json) => setTaskList(json));
+  }, []);
+
   return (
     <main className={styles.main1}>
       <nav className={styles.nav}>
@@ -18,10 +26,19 @@ const Home = () => {
         <h2>Tarefas Ativas</h2>
         <div className={styles.wrapper_list}>
           <ul className={styles.ul}>
-            <li>titulo descricao horario finalizar</li>
-            <li>titulo descricao horario finalizar</li>
-            <li>titulo descricao horario finalizar</li>
-            <li>titulo descricao horario finalizar</li>
+            {taskList && taskList.tasks.length !== 0 ? (
+              taskList.tasks.map((item) => (
+                <li key={item.id}>
+                  <p>{item.text}</p>
+
+                  <p>{item.prioridade}</p>
+                </li>
+              ))
+            ) : (
+              <li>
+                <p>Não há tarefas pendentes</p>
+              </li>
+            )}
           </ul>
         </div>
       </section>

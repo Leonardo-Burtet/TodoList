@@ -1,0 +1,15 @@
+.input {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.input label {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.input input {
+  width: 70%;
+}

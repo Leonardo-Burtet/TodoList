@@ -1,15 +1,18 @@
-import { createServer } from 'miragejs';
+import { createServer, Model } from 'miragejs';
 
 createServer({
-  routes() {
-    this.namespace = 'api';
+  models: {
+    task: Model,
+  },
 
-    this.get('/persons', () => [
-      {
-        task: 'Minha nova task',
-        data: 'Horario Atual',
-        open: true,
-      },
-    ]);
+  routes() {
+    this.get('api/tasks', (schema) => {
+      return schema.tasks.all();
+    });
+
+    this.post('api/tasks', (schema, request) => {
+      let attrs = JSON.parse(request.requestBody);
+      return schema.tasks.create(attrs);
+    });
   },
 });

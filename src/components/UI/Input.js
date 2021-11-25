@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './Input.module.css';
 
 const Input = ({ id, label, setValue, ...props }) => {
   return (
-    <div>
+    <div className={styles.input}>
       <label htmlFor={id}>{label}</label>
       <input
         id={id}
