@@ -1,0 +1,15 @@
+.wrapper_list {
+  border: 1px solid white;
+}
+
+.ul li {
+  margin: 10px;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.ul li span {
+  font-weight: bold;
+}

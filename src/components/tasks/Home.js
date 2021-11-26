@@ -13,6 +13,20 @@ const Home = () => {
   }, []);
 
   function handleClickFinish({ currentTarget }) {
+    const taskFinish = taskList.tasks.filter(
+      (item) => item.id === currentTarget.value
+    );
+
+    console.log(taskFinish[0]);
+
+    fetch('/api/complete', {
+      method: 'POST',
+      body: JSON.stringify({
+        text: taskFinish[0].text,
+        prioridade: taskFinish[0].prioridade,
+      }),
+    });
+
     fetch(`/api/tasks/${currentTarget.value}`, {
       method: 'DELETE',
     });
@@ -20,6 +34,8 @@ const Home = () => {
     fetch('/api/tasks')
       .then((response) => response.json())
       .then((json) => setTaskList(json));
+
+    console.log(taskList);
   }
 
   return (
