@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Button from '../UI/Button';
+import WrapperTask from '../UI/WrapperTask';
 import styles from './ListTask.module.css';
 
 const ListTask = () => {
@@ -21,30 +22,8 @@ const ListTask = () => {
       <NavLink to="/novatarefa">
         <Button title="Adicionar tarefa" />
       </NavLink>
-      <section className={styles.tasks}>
-        <h2>Tarefas Concluidas</h2>
-        <div className={styles.wrapper_list}>
-          <ul className={styles.ul}>
-            {taskList && taskList.completes !== null ? (
-              taskList.completes.map((item) => (
-                <li key={item.id}>
-                  <p>
-                    <span>Tarefa:</span> {item.text}
-                  </p>
 
-                  <p>
-                    <span>Prioridade:</span> {item.prioridade}
-                  </p>
-                </li>
-              ))
-            ) : (
-              <li>
-                <p>Não há tarefas concluidas</p>
-              </li>
-            )}
-          </ul>
-        </div>
-      </section>
+      <WrapperTask taskList={taskList} local="completes" />
     </div>
   );
 };
