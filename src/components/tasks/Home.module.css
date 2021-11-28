@@ -1,17 +1,8 @@
-.main1 {
+.main {
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
   height: 100%;
   padding: 1rem 0;
-}
-
-.tasks {
-  border: 1px solid #1414143a;
-  padding: 1rem;
-  font-size: 25px;
-  height: 80%;
-  overflow: auto;
 }
 
 .nav {
@@ -21,53 +12,4 @@
 .nav a {
   padding: 20px;
   border-radius: 2rem;
-}
-
-.ul li {
-  margin: 10px auto;
-  font-size: 1.2rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 0.2fr;
-  justify-items: start;
-  align-items: center;
-  width: 80%;
-}
-
-.ul li span {
-  font-weight: bold;
-}
-
-.ul li div {
-  width: 15%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.ul li div button {
-  padding: 0px;
-  border: none;
-  margin: 0;
-  cursor: pointer;
-  background: #fb1;
-}
-
-/* Works on Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #141414 #fb1;
-}
-
-/* Works on Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-  width: 12px;
-}
-
-*::-webkit-scrollbar-track {
-  background: #fb1;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #141414;
-  border-radius: 20px;
-  border: 3px solid #fb1;
 }

@@ -1,0 +1,77 @@
+.section {
+  border: 1px solid #1414143a;
+  margin: 1rem 0;
+  padding: 0.2rem;
+  font-size: 25px;
+  overflow: auto;
+  background-color: #ecece7;
+}
+
+.ul .tasks {
+  margin: 10px auto;
+  font-size: 1.2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.3fr;
+  justify-items: left;
+  align-items: center;
+  width: 100%;
+  padding: 0 2rem;
+  border-bottom: 0.5px solid rgba(161, 157, 157, 0.116);
+}
+
+.ul li span {
+  font-weight: bold;
+}
+
+.ul li div {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ul li div button {
+  padding: 0px;
+  border: none;
+  margin: 0;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 1.3rem;
+  transition: 0.2s;
+}
+
+.confirm {
+  color: #068d06;
+}
+
+.confirm:hover {
+  opacity: 0.8;
+}
+
+.remove {
+  color: #c4342d;
+}
+
+.remove:hover {
+  opacity: 0.8;
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #141414 #fb1;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #fb1;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #141414;
+  border-radius: 20px;
+  border: 3px solid #fb1;
+}

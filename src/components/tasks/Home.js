@@ -6,6 +6,8 @@ import styles from './Home.module.css';
 
 const Home = () => {
   const [taskList, setTaskList] = React.useState(null);
+  const date = new Date();
+  const dateTask = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
 
   React.useEffect(() => {
     fetch('/api/tasks')
@@ -23,6 +25,7 @@ const Home = () => {
       body: JSON.stringify({
         text: taskFinish[0].text,
         prioridade: taskFinish[0].prioridade,
+        date: dateTask,
       }),
     });
 
@@ -35,8 +38,18 @@ const Home = () => {
       .then((json) => setTaskList(json));
   }
 
+  function handleClickRemove({ currentTarget }) {
+    fetch(`/api/tasks/${currentTarget.value}`, {
+      method: 'DELETE',
+    });
+
+    fetch('/api/tasks')
+      .then((response) => response.json())
+      .then((json) => setTaskList(json));
+  }
+
   return (
-    <main className={styles.main1}>
+    <main className={styles.main}>
       <nav className={styles.nav}>
         <NavLink to="novatarefa">
           <Button title="Adicionar tarefa" />
@@ -48,7 +61,8 @@ const Home = () => {
       <WrapperTask
         taskList={taskList}
         local="tasks"
-        handleClick={handleClickFinish}
+        handleClickFinish={handleClickFinish}
+        handleClickRemove={handleClickRemove}
       />
     </main>
   );

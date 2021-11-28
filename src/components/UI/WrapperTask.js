@@ -1,16 +1,19 @@
 import React from 'react';
 import styles from './WrapperTask.module.css';
 
-const WrapperTask = ({ taskList, local, handleClick }) => {
-  console.log(taskList);
-  console.log(local);
+const WrapperTask = ({
+  taskList,
+  local,
+  handleClickFinish,
+  handleClickRemove,
+}) => {
   return (
-    <section className={styles.tasks}>
+    <section className={styles.section}>
       <div className={styles.wrapper_list}>
         <ul className={styles.ul}>
           {taskList !== null && taskList[local].length > 0 ? (
             taskList[local].map((item) => (
-              <li key={item.id}>
+              <li className={styles.tasks} key={item.id}>
                 <p>
                   <span>Tarefa:</span> {item.text}
                 </p>
@@ -20,16 +23,35 @@ const WrapperTask = ({ taskList, local, handleClick }) => {
                 </p>
                 <div>
                   {local === 'tasks' ? (
-                    <button onClick={handleClick} value={item.id}>
-                      <i className="fas fa-check-square"></i>
-                    </button>
-                  ) : null}
+                    <>
+                      <button
+                        className={styles.confirm}
+                        onClick={handleClickFinish}
+                        value={item.id}
+                      >
+                        <i className="fas fa-check-square"></i>
+                      </button>
+                      <button
+                        className={styles.remove}
+                        onClick={handleClickRemove}
+                        value={item.id}
+                      >
+                        <i class="fas fa-window-close"></i>
+                      </button>
+                    </>
+                  ) : (
+                    <p>{item.date}</p>
+                  )}
                 </div>
               </li>
             ))
           ) : (
-            <li>
-              <p>Nenhuma tarefa concluida.</p>
+            <li className={styles.noTasks}>
+              {local === 'tasks' ? (
+                <p>Nenhuma tarefa pendente.</p>
+              ) : (
+                <p>Nenhuma tarefa concluida.</p>
+              )}
             </li>
           )}
         </ul>

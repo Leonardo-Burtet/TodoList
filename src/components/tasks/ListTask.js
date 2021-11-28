@@ -14,17 +14,19 @@ const ListTask = () => {
   }, []);
 
   return (
-    <div>
-      <NavLink to="/home">
-        <Button title="Inicio" />
-      </NavLink>
+    <main className={styles.main}>
+      <nav className={styles.nav}>
+        <NavLink to="/home">
+          <Button title="Inicio" />
+        </NavLink>
 
-      <NavLink to="/novatarefa">
-        <Button title="Adicionar tarefa" />
-      </NavLink>
+        <NavLink to="/novatarefa">
+          <Button title="Adicionar tarefa" />
+        </NavLink>
+      </nav>
 
       <WrapperTask taskList={taskList} local="completes" />
-    </div>
+    </main>
   );
 };
 

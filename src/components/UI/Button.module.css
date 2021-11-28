@@ -1,10 +1,12 @@
 .button {
   padding: 0.7rem;
-  border-radius: 2px;
+  border-radius: 10px;
   border: 1px solid rgb(114, 113, 113);
-  background-color: #fff;
-  color: #141414;
-  text-transform: uppercase;
+  background-color: #141414;
+  color: #fff;
+  transition: 0.2s;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
 .button:hover {

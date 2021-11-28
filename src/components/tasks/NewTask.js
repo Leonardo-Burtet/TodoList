@@ -30,30 +30,31 @@ const NewTask = () => {
     <main className={styles.main}>
       <nav className={styles.nav}>
         <NavLink to="/home">
-          <Button title="Inicio" />
+          <Button title="Início" />
         </NavLink>
 
         <NavLink to="/lista">
           <Button title="Tarefas concluidas" />
         </NavLink>
       </nav>
+      <section className={styles.section}>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <Input
+            id="Titulo"
+            label="Titulo"
+            value={task}
+            setValue={setTask}
+            required
+          />
+          <Radio
+            options={['Alta', 'Media', 'Baixa']}
+            value={prioridade}
+            setValue={setPrioridade}
+          />
 
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <Input
-          id="Titulo"
-          label="Titulo"
-          value={task}
-          setValue={setTask}
-          required
-        />
-        <Radio
-          options={['Alto', 'Medio', 'Baixo']}
-          value={prioridade}
-          setValue={setPrioridade}
-        />
-
-        <Button title="Adicionar" />
-      </form>
+          <Button title="Adicionar" />
+        </form>
+      </section>
     </main>
   );
 };
