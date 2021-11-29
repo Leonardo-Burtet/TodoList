@@ -29,11 +29,11 @@ const NewTask = () => {
   return (
     <main className={styles.main}>
       <nav className={styles.nav}>
-        <NavLink to="/home">
+        <NavLink to="/">
           <Button title="Início" />
         </NavLink>
 
-        <NavLink to="/lista">
+        <NavLink to="/tarefas-concluidas">
           <Button title="Tarefas concluidas" />
         </NavLink>
       </nav>

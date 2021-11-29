@@ -20,7 +20,7 @@ const Home = () => {
       (item) => item.id === currentTarget.value
     );
 
-    fetch('/api/complete-task', {
+    fetch('/api/completed-task', {
       method: 'POST',
       body: JSON.stringify({
         text: taskFinish[0].text,
@@ -51,10 +51,10 @@ const Home = () => {
   return (
     <main className={styles.main}>
       <nav className={styles.nav}>
-        <NavLink to="novatarefa">
+        <NavLink to="adicionar-tarefa">
           <Button title="Adicionar tarefa" />
         </NavLink>
-        <NavLink to="lista">
+        <NavLink to="tarefas-concluidas">
           <Button title="Tarefas concluidas" />
         </NavLink>
       </nav>

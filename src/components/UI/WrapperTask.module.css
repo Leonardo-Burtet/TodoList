@@ -6,6 +6,9 @@
   overflow: auto;
   background-color: #ecece7;
   border-radius: 15px;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: animeLeft 0.5s forwards;
 }
 
 .ul .tasks {
@@ -75,4 +78,11 @@
   background-color: #141414;
   border-radius: 20px;
   border: 3px solid #fb1;
+}
+
+@keyframes animeLeft {
+  to {
+    opacity: 1;
+    transform: initial;
+  }
 }

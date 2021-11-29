@@ -3,15 +3,15 @@ import { createServer, Model } from 'miragejs';
 createServer({
   models: {
     task: Model,
-    complete: Model,
+    completed: Model,
   },
 
   routes() {
     this.get('api/pending-tasks', (schema) => {
       return schema.tasks.all();
     });
-    this.get('api/complete-task', (schema) => {
-      return schema.completes.all();
+    this.get('api/completed-task', (schema) => {
+      return schema.completeds.all();
     });
 
     this.get('api/pending-tasks/:id', (schema, request) => {
@@ -23,9 +23,9 @@ createServer({
       let attrs = JSON.parse(request.requestBody);
       return schema.tasks.create(attrs);
     });
-    this.post('api/complete-task/', (schema, request) => {
+    this.post('api/completed-task/', (schema, request) => {
       let novo = JSON.parse(request.requestBody);
-      return schema.completes.create(novo);
+      return schema.completeds.create(novo);
     });
 
     this.delete('/api/pending-tasks/:id', (schema, request) => {

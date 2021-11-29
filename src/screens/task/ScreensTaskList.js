@@ -1,8 +1,8 @@
 import React from 'react';
-import TaskList from '../../components/tasks/ListTask';
+import PendingTask from '../../components/tasks/PendingTask';
 
 const ScreensTaskList = () => {
-  return <TaskList />;
+  return <PendingTask />;
 };
 
 export default ScreensTaskList;

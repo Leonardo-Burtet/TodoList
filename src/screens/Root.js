@@ -13,8 +13,8 @@ const Root = () => {
           <h1>Lista de Tarefas</h1>
           <Routes>
             <Route path="/*" element={<ScreensTaskHome />} />
-            <Route path="novatarefa" element={<ScreensTaskNew />} />
-            <Route path="lista" element={<ScreensTaskList />} />
+            <Route path="adicionar-tarefa" element={<ScreensTaskNew />} />
+            <Route path="tarefas-concluidas" element={<ScreensTaskList />} />
           </Routes>
         </main>
       </BrowserRouter>
