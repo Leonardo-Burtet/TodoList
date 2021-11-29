@@ -5,6 +5,7 @@
   font-size: 25px;
   overflow: auto;
   background-color: #ecece7;
+  border-radius: 15px;
 }
 
 .ul .tasks {

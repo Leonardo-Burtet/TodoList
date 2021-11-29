@@ -8,7 +8,7 @@ const ListTask = () => {
   const [taskList, setTaskList] = React.useState(null);
 
   React.useEffect(() => {
-    fetch('/api/complete')
+    fetch('/api/complete-task')
       .then((response) => response.json())
       .then((json) => setTaskList(json));
   }, []);

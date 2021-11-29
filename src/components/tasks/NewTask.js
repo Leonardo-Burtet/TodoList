@@ -12,7 +12,7 @@ const NewTask = () => {
   function handleSubmit(event) {
     event.preventDefault();
     if (prioridade && task) {
-      fetch('/api/tasks', {
+      fetch('/api/pending-tasks', {
         method: 'POST',
         body: JSON.stringify({
           text: task,

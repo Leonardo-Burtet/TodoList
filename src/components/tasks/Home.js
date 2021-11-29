@@ -10,7 +10,7 @@ const Home = () => {
   const dateTask = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
 
   React.useEffect(() => {
-    fetch('/api/tasks')
+    fetch('/api/pending-tasks')
       .then((response) => response.json())
       .then((json) => setTaskList(json));
   }, []);
@@ -20,7 +20,7 @@ const Home = () => {
       (item) => item.id === currentTarget.value
     );
 
-    fetch('/api/complete', {
+    fetch('/api/complete-task', {
       method: 'POST',
       body: JSON.stringify({
         text: taskFinish[0].text,
@@ -29,21 +29,21 @@ const Home = () => {
       }),
     });
 
-    fetch(`/api/tasks/${currentTarget.value}`, {
+    fetch(`/api/pending-tasks/${currentTarget.value}`, {
       method: 'DELETE',
     });
 
-    fetch('/api/tasks')
+    fetch('/api/pending-tasks')
       .then((response) => response.json())
       .then((json) => setTaskList(json));
   }
 
   function handleClickRemove({ currentTarget }) {
-    fetch(`/api/tasks/${currentTarget.value}`, {
+    fetch(`/api/pending-tasks/${currentTarget.value}`, {
       method: 'DELETE',
     });
 
-    fetch('/api/tasks')
+    fetch('/api/pending-tasks')
       .then((response) => response.json())
       .then((json) => setTaskList(json));
   }

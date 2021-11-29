@@ -17,6 +17,7 @@
   background-color: #ecece7;
   border: 1px solid #1414143a;
   margin: 1rem 0;
+  border-radius: 15px;
 }
 .form {
   display: flex;
@@ -25,6 +26,6 @@
   align-items: center;
   justify-content: space-around;
   padding: 2rem;
-  width: 50vw;
+  max-width: 50%;
   height: 25vh;
 }

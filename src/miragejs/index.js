@@ -7,28 +7,28 @@ createServer({
   },
 
   routes() {
-    this.get('api/tasks', (schema) => {
+    this.get('api/pending-tasks', (schema) => {
       return schema.tasks.all();
     });
-    this.get('api/complete', (schema) => {
+    this.get('api/complete-task', (schema) => {
       return schema.completes.all();
     });
 
-    this.get('api/tasks/:id', (schema, request) => {
+    this.get('api/pending-tasks/:id', (schema, request) => {
       let id = request.params.id;
       return schema.tasks.find(id);
     });
 
-    this.post('api/tasks', (schema, request) => {
+    this.post('api/pending-tasks', (schema, request) => {
       let attrs = JSON.parse(request.requestBody);
       return schema.tasks.create(attrs);
     });
-    this.post('api/complete/', (schema, request) => {
+    this.post('api/complete-task/', (schema, request) => {
       let novo = JSON.parse(request.requestBody);
       return schema.completes.create(novo);
     });
 
-    this.delete('/api/tasks/:id', (schema, request) => {
+    this.delete('/api/pending-tasks/:id', (schema, request) => {
       let id = request.params.id;
 
       return schema.tasks.find(id).destroy();
