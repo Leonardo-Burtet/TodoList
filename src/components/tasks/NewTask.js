@@ -25,6 +25,7 @@ const NewTask = () => {
         .then((json) => json);
       setTask('');
       setPrioridade('');
+      alert('Tarefa adicionada');
     }
   }
 

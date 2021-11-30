@@ -37,7 +37,7 @@ const WrapperTask = ({
                       onClick={handleClickRemove}
                       value={item.id}
                     >
-                      <i class="fas fa-window-close"></i>
+                      <i className="fas fa-window-close"></i>
                     </button>
                   </>
                 ) : (

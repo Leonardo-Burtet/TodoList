@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Button from '../UI/Button';
@@ -21,32 +22,38 @@ const PendingTask = () => {
       (item) => item.id === currentTarget.value
     );
 
-    fetch('/api/completed-task', {
-      method: 'POST',
-      body: JSON.stringify({
-        text: taskFinish[0].text,
-        prioridade: taskFinish[0].prioridade,
-        date: dateTask,
-      }),
-    });
+    const completed = confirm(`Você finalizou a tarefa ?`);
+    if (completed) {
+      fetch('/api/completed-task', {
+        method: 'POST',
+        body: JSON.stringify({
+          text: taskFinish[0].text,
+          prioridade: taskFinish[0].prioridade,
+          date: dateTask,
+        }),
+      });
 
-    fetch(`/api/pending-tasks/${currentTarget.value}`, {
-      method: 'DELETE',
-    });
+      fetch(`/api/pending-tasks/${currentTarget.value}`, {
+        method: 'DELETE',
+      });
 
-    fetch('/api/pending-tasks')
-      .then((response) => response.json())
-      .then((json) => setTaskList(json));
+      fetch('/api/pending-tasks')
+        .then((response) => response.json())
+        .then((json) => setTaskList(json));
+    }
   }
 
   function handleClickRemove({ currentTarget }) {
-    fetch(`/api/pending-tasks/${currentTarget.value}`, {
-      method: 'DELETE',
-    });
+    const del = confirm('Você tem certeza que deseja excluir a tarefa ?');
+    if (del === true) {
+      fetch(`/api/pending-tasks/${currentTarget.value}`, {
+        method: 'DELETE',
+      });
 
-    fetch('/api/pending-tasks')
-      .then((response) => response.json())
-      .then((json) => setTaskList(json));
+      fetch('/api/pending-tasks')
+        .then((response) => response.json())
+        .then((json) => setTaskList(json));
+    }
   }
 
   return (
