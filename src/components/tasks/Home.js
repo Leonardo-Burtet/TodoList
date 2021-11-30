@@ -1,12 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Button from '../UI/Button';
+import Nav from '../UI/Nav';
+import MainContainer from '../UI/MainContainer';
 import styles from './Home.module.css';
 
 const Home = () => {
   return (
-    <main className={styles.main}>
-      <nav className={styles.nav}>
+    <MainContainer>
+      <Nav>
         <NavLink to="/tarefas-pendentes">
           <Button title="Tarefas pendentes" />
         </NavLink>
@@ -16,13 +18,13 @@ const Home = () => {
         <NavLink to="/adicionar-tarefa">
           <Button title="Adicionar tarefa" />
         </NavLink>
-      </nav>
+      </Nav>
 
       <section className={styles.section}>
         <p>Uma lista de tarefas para te ajudar a organizar o seu dia.</p>
         <p> Para começar, clique no botão "Adicionar Tarefa".</p>
       </section>
-    </main>
+    </MainContainer>
   );
 };
 

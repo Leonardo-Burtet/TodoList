@@ -4,6 +4,8 @@ import Button from '../UI/Button';
 import Radio from '../UI/Radio';
 import Input from '../UI/Input';
 import styles from './NewTask.module.css';
+import Nav from '../UI/Nav';
+import MainContainer from '../UI/MainContainer';
 
 const NewTask = () => {
   const [prioridade, setPrioridade] = React.useState('');
@@ -27,8 +29,8 @@ const NewTask = () => {
   }
 
   return (
-    <main className={styles.main}>
-      <nav className={styles.nav}>
+    <MainContainer>
+      <Nav>
         <NavLink to="/home">
           <Button title="Início" />
         </NavLink>
@@ -38,7 +40,7 @@ const NewTask = () => {
         <NavLink to="/tarefas-concluidas">
           <Button title="Tarefas concluidas" />
         </NavLink>
-      </nav>
+      </Nav>
       <section className={styles.section}>
         <form className={styles.form} onSubmit={handleSubmit}>
           <Input
@@ -57,7 +59,7 @@ const NewTask = () => {
           <Button title="Adicionar" />
         </form>
       </section>
-    </main>
+    </MainContainer>
   );
 };
 

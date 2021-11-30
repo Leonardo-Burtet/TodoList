@@ -1,36 +1,21 @@
-.main {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 1rem 0;
-}
-
-.nav {
-  display: flex;
-  justify-content: space-around;
-}
-.nav a {
-  padding: 20px;
-  border-radius: 2rem;
-}
 .section {
+  animation: animeLeft 0.5s forwards;
   background-color: #ecece7;
   border: 1px solid #1414143a;
-  margin: 1rem 0;
   border-radius: 15px;
+  margin: 1rem 0;
   opacity: 0;
   transform: translateX(-20px);
-  animation: animeLeft 0.5s forwards;
 }
 .form {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  align-items: center;
+  height: 25vh;
   justify-content: space-around;
+  margin: 0 auto;
   padding: 2rem;
   max-width: 50%;
-  height: 25vh;
 }
 
 @keyframes animeLeft {

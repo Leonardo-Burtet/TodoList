@@ -1,8 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Button from '../UI/Button';
+import MainContainer from '../UI/MainContainer';
+import Nav from '../UI/Nav';
 import WrapperTask from '../UI/WrapperTask';
-import styles from './PendingTask.module.css';
 
 const PendingTask = () => {
   const [taskList, setTaskList] = React.useState(null);
@@ -49,25 +50,25 @@ const PendingTask = () => {
   }
 
   return (
-    <main className={styles.main}>
-      <nav className={styles.nav}>
+    <MainContainer>
+      <Nav>
         <NavLink to="/home">
           <Button title="Início" />
         </NavLink>
-        <NavLink to="/adicionar-tarefa">
-          <Button title="Adicionar tarefa" />
-        </NavLink>{' '}
         <NavLink to="/tarefas-concluidas">
           <Button title="Tarefas concluidas" />
+        </NavLink>{' '}
+        <NavLink to="/adicionar-tarefa">
+          <Button title="Adicionar tarefa" />
         </NavLink>
-      </nav>
+      </Nav>
       <WrapperTask
         taskList={taskList}
         local="tasks"
         handleClickFinish={handleClickFinish}
         handleClickRemove={handleClickRemove}
       />
-    </main>
+    </MainContainer>
   );
 };
 
