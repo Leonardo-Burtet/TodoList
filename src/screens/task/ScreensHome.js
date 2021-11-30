@@ -1,8 +1,8 @@
 import React from 'react';
 import Home from '../../components/tasks/Home';
 
-const ScreensTaskHome = () => {
+const ScreensHome = () => {
   return <Home />;
 };
 
-export default ScreensTaskHome;
+export default ScreensHome;

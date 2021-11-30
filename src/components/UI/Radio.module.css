@@ -1,10 +1,8 @@
 .radio {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   font-size: 20px;
+  justify-content: space-between;
   width: 100%;
-  align-items: flex-end;
 }
 
 .radio p {
@@ -12,7 +10,6 @@
 }
 
 .radio div {
-  width: 65%;
   display: flex;
-  justify-content: space-between;
+  width: 65%;
 }

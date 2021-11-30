@@ -1,9 +1,10 @@
 import React from 'react';
 import './Root.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ScreensTaskHome from './task/ScreensTaskHome';
-import ScreensTaskNew from './task/ScreensTaskNew';
-import ScreensTaskList from './task/ScreensTaskList';
+import ScreensHome from './task/ScreensHome';
+import ScreensPendingTask from './task/ScreensPendingTask';
+import ScreensNewTask from './task/ScreensNewTask';
+import ScreensCompletedTask from './task/ScreensCompletedTask';
 
 const Root = () => {
   return (
@@ -12,9 +13,13 @@ const Root = () => {
         <main className="container">
           <h1>Lista de Tarefas</h1>
           <Routes>
-            <Route path="/*" element={<ScreensTaskHome />} />
-            <Route path="adicionar-tarefa" element={<ScreensTaskNew />} />
-            <Route path="tarefas-concluidas" element={<ScreensTaskList />} />
+            <Route path="/*" element={<ScreensHome />} />
+            <Route path="tarefas-pendentes" element={<ScreensPendingTask />} />
+            <Route path="adicionar-tarefa" element={<ScreensNewTask />} />
+            <Route
+              path="tarefas-concluidas"
+              element={<ScreensCompletedTask />}
+            />
           </Routes>
         </main>
       </BrowserRouter>

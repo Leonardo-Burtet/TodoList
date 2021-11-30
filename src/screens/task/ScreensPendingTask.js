@@ -1,8 +1,8 @@
 import React from 'react';
 import PendingTask from '../../components/tasks/PendingTask';
 
-const ScreensTaskList = () => {
+const ScreensPendingTask = () => {
   return <PendingTask />;
 };
 
-export default ScreensTaskList;
+export default ScreensPendingTask;

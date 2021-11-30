@@ -1,26 +1,26 @@
 .section {
-  border: 1px solid #1414143a;
-  margin: 1rem 0;
-  padding: 0.2rem;
-  font-size: 25px;
-  overflow: auto;
-  background-color: #ecece7;
-  border-radius: 15px;
-  opacity: 0;
-  transform: translateX(-20px);
   animation: animeLeft 0.5s forwards;
+  background-color: #ecece7;
+  border: 1px solid #1414143a;
+  border-radius: 15px;
+  font-size: 25px;
+  margin: 1rem 0;
+  opacity: 0;
+  overflow: auto;
+  padding: 0.2rem;
+  transform: translateX(-20px);
 }
 
 .ul .tasks {
-  margin: 10px auto;
-  font-size: 1.2rem;
+  align-items: center;
+  border-bottom: 0.5px solid rgba(161, 157, 157, 0.116);
   display: grid;
+  font-size: 1.2rem;
   grid-template-columns: 1fr 1fr 0.3fr;
   justify-items: left;
-  align-items: center;
-  width: 100%;
+  margin: 10px auto;
   padding: 0 2rem;
-  border-bottom: 0.5px solid rgba(161, 157, 157, 0.116);
+  width: 100%;
 }
 
 .ul li span {
@@ -28,18 +28,18 @@
 }
 
 .ul li div {
-  width: 60%;
   display: flex;
   justify-content: space-between;
+  width: 60%;
 }
 
 .ul li div button {
-  padding: 0px;
-  border: none;
-  margin: 0;
-  cursor: pointer;
   background-color: transparent;
+  border: none;
+  cursor: pointer;
   font-size: 1.3rem;
+  margin: 0;
+  padding: 0px;
   transition: 0.2s;
 }
 
@@ -57,6 +57,13 @@
 
 .remove:hover {
   opacity: 0.8;
+}
+
+@keyframes animeLeft {
+  to {
+    opacity: 1;
+    transform: initial;
+  }
 }
 
 /* Works on Firefox */
@@ -78,11 +85,4 @@
   background-color: #141414;
   border-radius: 20px;
   border: 3px solid #fb1;
-}
-
-@keyframes animeLeft {
-  to {
-    opacity: 1;
-    transform: initial;
-  }
 }

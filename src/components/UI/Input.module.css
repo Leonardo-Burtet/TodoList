@@ -1,7 +1,7 @@
 .input {
+  align-items: flex-end;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
   width: 100%;
 }
 
