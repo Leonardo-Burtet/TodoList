@@ -62,12 +62,15 @@ const PendingTask = () => {
           <Button title="Adicionar tarefa" />
         </NavLink>
       </Nav>
-      <WrapperTask
-        taskList={taskList}
-        local="tasks"
-        handleClickFinish={handleClickFinish}
-        handleClickRemove={handleClickRemove}
-      />
+      <section>
+        <WrapperTask
+          title="Tarefas pendentes"
+          taskList={taskList}
+          local="tasks"
+          handleClickFinish={handleClickFinish}
+          handleClickRemove={handleClickRemove}
+        />{' '}
+      </section>
     </MainContainer>
   );
 };

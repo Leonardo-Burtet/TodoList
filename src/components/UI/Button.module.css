@@ -5,9 +5,10 @@
   color: #fff;
   font-size: 0.8rem;
   font-weight: bold;
-  min-width: 100px;
+  min-width: 140px;
   padding: 0.7rem;
   transition: 0.2s;
+  text-transform: uppercase;
 }
 
 .button:hover {

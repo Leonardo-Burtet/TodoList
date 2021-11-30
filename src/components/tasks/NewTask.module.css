@@ -1,21 +1,24 @@
 .section {
-  animation: animeLeft 0.5s forwards;
+  align-items: center;
+  animation: animeLeft 0.8s forwards;
   background-color: #ecece7;
   border: 1px solid #1414143a;
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
   margin: 1rem 0;
   opacity: 0;
+  padding: 10px 0;
   transform: translateX(-20px);
 }
 .form {
-  align-items: center;
   display: flex;
   flex-direction: column;
   height: 25vh;
   justify-content: space-around;
-  margin: 0 auto;
   padding: 2rem;
-  max-width: 50%;
+  min-width: 60%;
+  max-width: 80%;
 }
 
 @keyframes animeLeft {

@@ -1,11 +1,11 @@
-a:last-child button {
+.animeBtn button {
   animation: buttonAdd 0.5s ease-in alternate infinite;
   background-color: #141414;
-  transform: translateY(-10px);
+  transform: translateY(-5px);
 }
 
 .section {
-  animation: animeLeft 0.5s forwards;
+  animation: animeLeft 0.8s forwards;
   background-color: #ecece7;
   border: 1px solid #1414143a;
   border-radius: 15px;
@@ -15,6 +15,11 @@ a:last-child button {
   padding: 1rem;
   transform: translateX(-20px);
   text-align: center;
+}
+
+.section h2 {
+  font-size: 1.5rem;
+  padding-bottom: 15px;
 }
 
 @keyframes animeLeft {

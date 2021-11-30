@@ -42,12 +42,14 @@ const NewTask = () => {
         </NavLink>
       </Nav>
       <section className={styles.section}>
+        <h2>Adicione uma tarefa</h2>
         <form className={styles.form} onSubmit={handleSubmit}>
           <Input
-            id="Titulo"
-            label="Titulo"
+            id="Tarefa"
+            label="Tarefa"
             value={task}
             setValue={setTask}
+            placeholder="Digite aqui a sua tarefa"
             required
           />
           <Radio

@@ -1,5 +1,5 @@
 .section {
-  animation: animeLeft 0.5s forwards;
+  animation: animeLeft 0.8s forwards;
   background-color: #ecece7;
   border: 1px solid #1414143a;
   border-radius: 15px;
@@ -7,8 +7,14 @@
   margin: 1rem 0;
   opacity: 0;
   overflow: auto;
-  padding: 0.2rem;
+  padding: 0.2rem calc(0.2rem + 15px) 0.2rem 0.2rem;
   transform: translateX(-20px);
+}
+
+.section h2 {
+  font-size: 1.5rem;
+  padding-top: 5px;
+  padding-bottom: 2rem;
 }
 
 .ul .tasks {
@@ -39,7 +45,7 @@
   cursor: pointer;
   font-size: 1.3rem;
   margin: 0;
-  padding: 0px;
+  padding: 0;
   transition: 0.2s;
 }
 

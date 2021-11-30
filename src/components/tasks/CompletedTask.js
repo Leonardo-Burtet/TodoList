@@ -28,8 +28,13 @@ const CompletedTask = () => {
           <Button title="Adicionar tarefa" />
         </NavLink>
       </Nav>
-
-      <WrapperTask taskList={taskList} local="completeds" />
+      <section>
+        <WrapperTask
+          title="Tarefas concluidas"
+          taskList={taskList}
+          local="completeds"
+        />
+      </section>
     </MainContainer>
   );
 };

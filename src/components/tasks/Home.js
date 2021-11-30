@@ -15,12 +15,13 @@ const Home = () => {
         <NavLink to="/tarefas-concluidas">
           <Button title="Tarefas concluidas" />
         </NavLink>{' '}
-        <NavLink to="/adicionar-tarefa">
+        <NavLink className={styles.animeBtn} to="/adicionar-tarefa">
           <Button title="Adicionar tarefa" />
         </NavLink>
       </Nav>
 
       <section className={styles.section}>
+        <h2>Início</h2>
         <p>Uma lista de tarefas para te ajudar a organizar o seu dia.</p>
         <p> Para começar, clique no botão "Adicionar Tarefa".</p>
       </section>

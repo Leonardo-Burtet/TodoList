@@ -4,7 +4,7 @@ import styles from './Radio.module.css';
 const Radio = ({ options, value, setValue, ...props }) => {
   return (
     <div className={styles.radio}>
-      <p>Prioridade :</p>
+      <p>Prioridade:</p>
       <div>
         {options.map((option) => (
           <label key={option}>

@@ -6,9 +6,11 @@ const WrapperTask = ({
   local,
   handleClickFinish,
   handleClickRemove,
+  title,
 }) => {
   return (
     <section className={styles.section}>
+      <h2>{title}</h2>
       <ul className={styles.ul}>
         {taskList !== null && taskList[local].length > 0 ? (
           taskList[local].map((item) => (
