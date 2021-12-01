@@ -9,7 +9,9 @@ import WrapperTask from '../UI/WrapperTask';
 const PendingTask = () => {
   const [taskList, setTaskList] = React.useState(null);
   const date = new Date();
-  const dateTask = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+  const dateTask = `${
+    date.getDate() < 10 ? '0' + date.getDate() : date.getDate()
+  }/${date.getMonth()}/${date.getFullYear()}`;
 
   React.useEffect(() => {
     fetch('/api/pending-tasks')

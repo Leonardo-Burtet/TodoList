@@ -14,7 +14,7 @@ const WrapperTask = ({
       <ul className={styles.ul}>
         {taskList !== null && taskList[local].length > 0 ? (
           taskList[local].map((item) => (
-            <li className={styles.tasks} key={item.id}>
+            <li className={styles.li} key={item.id}>
               <p>
                 <span>Tarefa:</span> {item.text}
               </p>

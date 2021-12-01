@@ -11,9 +11,21 @@
 }
 
 .radio div {
+  align-items: flex-end;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-end;
   width: 65%;
+}
+
+@media (max-width: 600px) {
+  .radio {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-top: 20px;
+  }
+
+  .radio div {
+    width: 100%;
+  }
 }

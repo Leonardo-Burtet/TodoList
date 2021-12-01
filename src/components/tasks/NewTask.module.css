@@ -21,9 +21,20 @@
   max-width: 80%;
 }
 
+.form button {
+  margin-top: 20px;
+  width: 100%;
+}
+
 @keyframes animeLeft {
   to {
     opacity: 1;
     transform: initial;
+  }
+}
+
+@media (max-width: 600px) {
+  .form {
+    width: 100%;
   }
 }
