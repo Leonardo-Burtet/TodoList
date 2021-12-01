@@ -10,6 +10,11 @@ import MainContainer from '../UI/MainContainer';
 const NewTask = () => {
   const [prioridade, setPrioridade] = React.useState('');
   const [task, setTask] = React.useState('');
+  const [card, setCard] = React.useState(false);
+
+  function handleClickCard() {
+    setCard(!card);
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -20,12 +25,9 @@ const NewTask = () => {
           text: task,
           prioridade: prioridade,
         }),
-      })
-        .then((res) => res.json())
-        .then((json) => json);
+      });
       setTask('');
       setPrioridade('');
-      alert('Tarefa adicionada');
     }
   }
 
@@ -40,6 +42,9 @@ const NewTask = () => {
         </NavLink>
         <NavLink to="/tarefas-concluidas">
           <Button title="Tarefas concluidas" />
+        </NavLink>
+        <NavLink to="/adicionar-tarefa">
+          <Button title="Adicionar tarefa" />
         </NavLink>
       </Nav>
       <section className={styles.section}>
@@ -58,9 +63,25 @@ const NewTask = () => {
             value={prioridade}
             setValue={setPrioridade}
           />
-          <Button title="Adicionar" />
+          <Button
+            title="Adicionar"
+            onClick={prioridade && task !== '' ? handleClickCard : null}
+          />
         </form>
       </section>
+      {card === true ? (
+        <div className={styles.card}>
+          <div className={styles.modal}>
+            <p>Deseja adicionar mais uma tarefa?</p>
+            <div>
+              <Button title="Sim" onClick={handleClickCard} />
+              <NavLink to="/tarefas-pendentes">
+                <Button title="Não" />
+              </NavLink>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </MainContainer>
   );
 };

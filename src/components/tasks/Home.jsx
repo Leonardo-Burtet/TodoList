@@ -9,6 +9,9 @@ const Home = () => {
   return (
     <MainContainer>
       <Nav>
+        <NavLink to="/inicio">
+          <Button title="Início" />
+        </NavLink>
         <NavLink to="/tarefas-pendentes">
           <Button title="Tarefas pendentes" />
         </NavLink>

@@ -20,9 +20,11 @@ const CompletedTask = () => {
         <NavLink to="/home">
           <Button title="Início" />
         </NavLink>
-
         <NavLink to="/tarefas-pendentes">
           <Button title="Tarefas pendentes" />
+        </NavLink>
+        <NavLink to="/tarefas-concluidas">
+          <Button title="Tarefas concluidas" />
         </NavLink>
         <NavLink to="/adicionar-tarefa">
           <Button title="Adicionar tarefa" />
