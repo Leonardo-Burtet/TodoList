@@ -1,6 +1,7 @@
 .nav {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 .nav a {
   padding: 20px;

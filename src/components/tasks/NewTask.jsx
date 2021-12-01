@@ -58,7 +58,6 @@ const NewTask = () => {
             value={prioridade}
             setValue={setPrioridade}
           />
-
           <Button title="Adicionar" />
         </form>
       </section>

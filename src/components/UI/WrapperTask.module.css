@@ -94,6 +94,9 @@
 }
 
 @media (max-width: 600px) {
+  .section {
+    margin: 10px;
+  }
   .ul .li {
     font-size: 1rem;
     grid-template-columns: 1fr 1fr 0.3fr;
