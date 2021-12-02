@@ -24,25 +24,22 @@ const PendingTask = () => {
       (item) => item.id === currentTarget.value
     );
 
-    const completed = confirm(`Você finalizou a tarefa ?`);
-    if (completed) {
-      fetch('/api/completed-task', {
-        method: 'POST',
-        body: JSON.stringify({
-          text: taskFinish[0].text,
-          prioridade: taskFinish[0].prioridade,
-          date: dateTask,
-        }),
-      });
+    fetch('/api/completed-task', {
+      method: 'POST',
+      body: JSON.stringify({
+        text: taskFinish[0].text,
+        prioridade: taskFinish[0].prioridade,
+        date: dateTask,
+      }),
+    });
 
-      fetch(`/api/pending-tasks/${currentTarget.value}`, {
-        method: 'DELETE',
-      });
+    fetch(`/api/pending-tasks/${currentTarget.value}`, {
+      method: 'DELETE',
+    });
 
-      fetch('/api/pending-tasks')
-        .then((response) => response.json())
-        .then((json) => setTaskList(json));
-    }
+    fetch('/api/pending-tasks')
+      .then((response) => response.json())
+      .then((json) => setTaskList(json));
   }
 
   function handleClickRemove({ currentTarget }) {

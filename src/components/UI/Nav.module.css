@@ -7,3 +7,9 @@
   padding: 20px;
   border-radius: 2rem;
 }
+
+@media (max-width: 600px) {
+  .nav a {
+    padding: 3px;
+  }
+}
