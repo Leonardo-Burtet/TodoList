@@ -61,7 +61,7 @@
 
 @media (max-width: 600px) {
   .section {
-    margin: 80px;
+    margin: 50px 20px;
   }
   .form {
     width: 100%;
