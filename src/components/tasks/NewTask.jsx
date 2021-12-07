@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import Button from '../UI/Button';
 import Radio from '../UI/Radio';
 import Input from '../UI/Input';
-import styles from './NewTask.module.css';
 import Nav from '../UI/Nav';
 import MainContainer from '../UI/MainContainer';
 
@@ -47,9 +46,9 @@ const NewTask = () => {
           <Button title="Adicionar tarefa" />
         </NavLink>
       </Nav>
-      <section className={styles.section}>
+      <section className="newTaskSection">
         <h2>Adicione uma tarefa</h2>
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <Input
             id="Tarefa"
             label="Tarefa"
@@ -70,8 +69,8 @@ const NewTask = () => {
         </form>
       </section>
       {card === true ? (
-        <div className={styles.card}>
-          <div className={styles.modal}>
+        <div className="card">
+          <div className="modal">
             <p>Deseja adicionar mais uma tarefa?</p>
             <div>
               <Button title="Sim" onClick={handleClickCard} />

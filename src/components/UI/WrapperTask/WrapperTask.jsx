@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './WrapperTask.module.css';
+import { SharedStyleWrapperTask } from './styles';
 
 const WrapperTask = ({
   taskList,
@@ -9,12 +9,12 @@ const WrapperTask = ({
   title,
 }) => {
   return (
-    <section className={styles.section}>
+    <SharedStyleWrapperTask>
       <h2>{title}</h2>
-      <ul className={styles.ul}>
+      <ul>
         {taskList !== null && taskList[local].length > 0 ? (
           taskList[local].map((item) => (
-            <li className={styles.li} key={item.id}>
+            <li key={item.id}>
               <p>
                 <span>Tarefa:</span> {item.text}
               </p>
@@ -26,14 +26,14 @@ const WrapperTask = ({
                 {local === 'tasks' ? (
                   <>
                     <button
-                      className={styles.confirm}
+                      className="confirm"
                       onClick={handleClickFinish}
                       value={item.id}
                     >
                       <i className="fas fa-check-square"></i>
                     </button>
                     <button
-                      className={styles.remove}
+                      className="remove"
                       onClick={handleClickRemove}
                       value={item.id}
                     >
@@ -47,7 +47,7 @@ const WrapperTask = ({
             </li>
           ))
         ) : (
-          <li className={styles.noTasks}>
+          <li className="noTasks">
             {local === 'tasks' ? (
               <p>Nenhuma tarefa pendente.</p>
             ) : (
@@ -56,7 +56,7 @@ const WrapperTask = ({
           </li>
         )}
       </ul>
-    </section>
+    </SharedStyleWrapperTask>
   );
 };
 

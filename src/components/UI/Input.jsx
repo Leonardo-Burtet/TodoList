@@ -1,9 +1,36 @@
 import React from 'react';
-import styles from './Input.module.css';
+import styled from 'styled-components';
+
+const SharedStyleInput = styled.div`
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  label {
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  input {
+    width: 65%;
+    font-size: 1rem;
+    padding: 2px;
+  }
+
+  @media (max-width: 600px) {
+    align-items: flex-start;
+    flex-direction: column;
+
+    input {
+      width: 100%;
+    }
+  }
+`;
 
 const Input = ({ id, label, setValue, ...props }) => {
   return (
-    <div className={styles.input}>
+    <SharedStyleInput>
       <label htmlFor={id}>{label}:</label>
       <input
         id={id}
@@ -11,7 +38,7 @@ const Input = ({ id, label, setValue, ...props }) => {
         onChange={({ target }) => setValue(target.value)}
         {...props}
       />
-    </div>
+    </SharedStyleInput>
   );
 };
 

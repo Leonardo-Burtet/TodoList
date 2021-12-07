@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import Button from '../UI/Button';
 import Nav from '../UI/Nav';
 import MainContainer from '../UI/MainContainer';
-import styles from './Home.module.css';
 
 const Home = () => {
   return (
@@ -18,12 +17,12 @@ const Home = () => {
         <NavLink to="/tarefas-concluidas">
           <Button title="Tarefas concluidas" />
         </NavLink>{' '}
-        <NavLink className={styles.animeBtn} to="/adicionar-tarefa">
+        <NavLink className="animeBtn" to="/adicionar-tarefa">
           <Button title="Adicionar tarefa" />
         </NavLink>
       </Nav>
 
-      <section className={styles.section}>
+      <section className="homeSection">
         <h2>Início</h2>
         <p>Uma lista de tarefas para te ajudar a organizar o seu dia.</p>
         <p> Para começar, clique no botão "Adicionar Tarefa".</p>

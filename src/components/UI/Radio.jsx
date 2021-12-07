@@ -1,9 +1,38 @@
 import React from 'react';
-import styles from './Radio.module.css';
+import styled from 'styled-components';
 
+const SharedStyleRadio = styled.div`
+  display: flex;
+  font-size: 20px;
+  justify-content: space-between;
+  width: 100%;
+
+  p {
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  div {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 65%;
+  }
+
+  @media (max-width: 600px) {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-top: 20px;
+
+    div {
+      width: 100%;
+    }
+  }
+`;
 const Radio = ({ options, value, setValue, ...props }) => {
   return (
-    <div className={styles.radio}>
+    <SharedStyleRadio>
       <p>Prioridade:</p>
       <div>
         {options.map((option) => (
@@ -19,7 +48,7 @@ const Radio = ({ options, value, setValue, ...props }) => {
           </label>
         ))}
       </div>
-    </div>
+    </SharedStyleRadio>
   );
 };
 
