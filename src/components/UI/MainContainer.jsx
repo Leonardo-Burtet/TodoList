@@ -72,8 +72,9 @@ const SharedStyleMain = styled.main`
   }
 
   .card .modal {
-    width: 20vw;
+    max-width: 60vw;
     height: 30vh;
+    padding: 10px;
     min-width: 300px;
     background: rgb(255, 255, 255);
     border-radius: 15px;
@@ -105,6 +106,10 @@ const SharedStyleMain = styled.main`
       width: 100%;
       height: 100%;
       padding: 0.5rem;
+    }
+
+    .card {
+      padding: 5rem;
     }
     .card .modal {
       width: 100%;

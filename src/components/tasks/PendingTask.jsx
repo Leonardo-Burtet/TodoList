@@ -66,7 +66,13 @@ const PendingTask = () => {
   }
 
   function handleClickEdit({ currentTarget }) {
+    const taskEdit = taskList.tasks.filter(
+      (item) => item.id === currentTarget.value
+    );
+    console.log(taskEdit[0].text);
     setTarget(currentTarget.value);
+    setChangeTask(taskEdit[0].text);
+    setChangePriority(taskEdit[0].prioridade);
     handleClickCard();
   }
 
@@ -119,23 +125,24 @@ const PendingTask = () => {
           <div className="card">
             <div className="modal">
               <p>Altere a tarefa</p>
+              <div>
+                <Input
+                  id="Tarefa"
+                  label="Tarefa"
+                  value={changeTask}
+                  setValue={setChangeTask}
+                  placeholder={`${changeTask}`}
+                  required
+                />
 
-              <Input
-                id="Tarefa"
-                label="Tarefa"
-                value={changeTask}
-                setValue={setChangeTask}
-                placeholder="Digite aqui para alterar o nome"
-                required
-              />
+                <Radio
+                  options={['Alta', 'Media', 'Baixa']}
+                  value={changePriority}
+                  setValue={setChangePriority}
+                />
 
-              <Radio
-                options={['Alta', 'Media', 'Baixa']}
-                value={changePriority}
-                setValue={setChangePriority}
-              />
-
-              <Button title="Alterar" onClick={handleClickChange} />
+                <Button title="Alterar" onClick={handleClickChange} />
+              </div>
             </div>
           </div>
         ) : null}
