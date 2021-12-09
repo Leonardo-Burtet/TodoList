@@ -85,9 +85,6 @@ const SharedStyleMain = styled.main`
     font-size: 1.4rem;
   }
 
-  .card .modal input {
-  }
-
   @keyframes animeLeft {
     to {
       opacity: 1;
@@ -116,7 +113,7 @@ const SharedStyleMain = styled.main`
     }
     .card .modal {
       width: 100%;
-      height: 30%;
+      height: 50vh;
     }
   }
 `;
