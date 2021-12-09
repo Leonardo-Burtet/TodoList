@@ -69,7 +69,6 @@ const PendingTask = () => {
     const taskEdit = taskList.tasks.filter(
       (item) => item.id === currentTarget.value
     );
-    console.log(taskEdit[0].text);
     setTarget(currentTarget.value);
     setChangeTask(taskEdit[0].text);
     setChangePriority(taskEdit[0].prioridade);

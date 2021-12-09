@@ -16,14 +16,14 @@ const WrapperTask = ({
         {taskList !== null && taskList[local].length > 0 ? (
           taskList[local].map((item) => (
             <li key={item.id}>
-              <p>
-                <span>Tarefa:</span> {item.text}
-              </p>
+              <div className="textTask">
+                <span>Tarefa:</span> <p>{item.text}</p>
+              </div>
 
-              <p>
-                <span>Prioridade:</span> {item.prioridade}
-              </p>
               <div>
+                <span>Prioridade:</span> {item.prioridade}
+              </div>
+              <div className="divButtons">
                 {local === 'tasks' ? (
                   <>
                     <button

@@ -25,20 +25,30 @@ const SharedStyleWrapperTask = styled.section`
     font-size: 1.2rem;
     grid-template-columns: 1fr 1fr 0.3fr;
     justify-items: left;
+    align-items: center;
     margin: 10px auto;
-    padding: 0 2rem;
-
+    padding: 0 1rem;
     width: 100%;
+  }
+
+  ul li .textTask {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    word-break: break-word;
+    padding: 5px;
   }
 
   ul li span {
     font-weight: bold;
+    padding-right: 5px;
   }
 
-  ul li div {
+  ul li .divButtons {
     display: flex;
     justify-content: space-between;
-    width: 60%;
+    align-items: flex-end;
+    width: 80%;
   }
 
   ul li div button {
@@ -55,9 +65,17 @@ const SharedStyleWrapperTask = styled.section`
     opacity: 0.8;
   }
 
+  ul li div button:last-child {
+    padding-bottom: 1px;
+  }
+
   .noTasks {
     display: inline-block;
     text-align: center;
+  }
+
+  .noTasks p {
+    justify-content: center;
   }
 
   .confirm {
