@@ -28,6 +28,13 @@ createServer({
       return schema.completeds.create(novo);
     });
 
+    this.put('api/pending-tasks/:id', (schema, request) => {
+      let id = request.params.id;
+      let attrs = JSON.parse(request.requestBody);
+
+      return schema.tasks.find(id).update(attrs);
+    });
+
     this.delete('/api/pending-tasks/:id', (schema, request) => {
       let id = request.params.id;
 

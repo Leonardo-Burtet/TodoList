@@ -58,7 +58,7 @@ const SharedStyleMain = styled.main`
     width: 100%;
   }
 
-  .newTaskSection .card {
+  .card {
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -71,7 +71,7 @@ const SharedStyleMain = styled.main`
     align-items: center;
   }
 
-  .newTaskSection .modal {
+  .card .modal {
     width: 20vw;
     height: 30vh;
     min-width: 300px;
@@ -106,8 +106,7 @@ const SharedStyleMain = styled.main`
       height: 100%;
       padding: 0.5rem;
     }
-
-    .newTaskSection .modal {
+    .card .modal {
       width: 100%;
       height: 30%;
     }

@@ -6,6 +6,7 @@ const WrapperTask = ({
   local,
   handleClickFinish,
   handleClickRemove,
+  handleClickEdit,
   title,
 }) => {
   return (
@@ -38,6 +39,13 @@ const WrapperTask = ({
                       value={item.id}
                     >
                       <i className="fas fa-window-close"></i>
+                    </button>
+                    <button
+                      className="edit"
+                      onClick={handleClickEdit}
+                      value={item.id}
+                    >
+                      <i className="fas fa-edit"></i>
                     </button>
                   </>
                 ) : (

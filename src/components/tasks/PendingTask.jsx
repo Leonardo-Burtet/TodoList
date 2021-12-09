@@ -2,12 +2,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Button from '../UI/Button';
+import Input from '../UI/Input';
 import MainContainer from '../UI/MainContainer';
 import Nav from '../UI/Nav';
+import Radio from '../UI/Radio';
 import WrapperTask from '../UI/WrapperTask/WrapperTask';
 
 const PendingTask = () => {
   const [taskList, setTaskList] = React.useState(null);
+  const [card, setCard] = React.useState(false);
+  const [changePriority, setChangePriority] = React.useState('');
+  const [changeTask, setChangeTask] = React.useState('');
+  const [target, setTarget] = React.useState('');
   const date = new Date();
   const dateTask = `${
     date.getDate() < 10 ? '0' + date.getDate() : date.getDate()
@@ -18,6 +24,10 @@ const PendingTask = () => {
       .then((response) => response.json())
       .then((json) => setTaskList(json));
   }, []);
+
+  function handleClickCard() {
+    setCard(!card);
+  }
 
   function handleClickFinish({ currentTarget }) {
     const taskFinish = taskList.tasks.filter(
@@ -55,6 +65,30 @@ const PendingTask = () => {
     }
   }
 
+  function handleClickEdit({ currentTarget }) {
+    setTarget(currentTarget.value);
+    handleClickCard();
+  }
+
+  function handleClickChange() {
+    fetch(`/api/pending-tasks/${target}`, {
+      method: 'PUT',
+      Head: ['Content-Type:application/json'],
+      body: JSON.stringify({
+        text: changeTask,
+        prioridade: changePriority,
+      }),
+    });
+
+    fetch('/api/pending-tasks')
+      .then((response) => response.json())
+      .then((json) => setTaskList(json))
+      .then(handleClickCard());
+
+    setChangeTask('');
+    setChangePriority('');
+  }
+
   return (
     <MainContainer>
       <Nav>
@@ -78,7 +112,33 @@ const PendingTask = () => {
           local="tasks"
           handleClickFinish={handleClickFinish}
           handleClickRemove={handleClickRemove}
-        />{' '}
+          handleClickEdit={handleClickEdit}
+        />
+
+        {card === true ? (
+          <div className="card">
+            <div className="modal">
+              <p>Altere a tarefa</p>
+
+              <Input
+                id="Tarefa"
+                label="Tarefa"
+                value={changeTask}
+                setValue={setChangeTask}
+                placeholder="Digite aqui para alterar o nome"
+                required
+              />
+
+              <Radio
+                options={['Alta', 'Media', 'Baixa']}
+                value={changePriority}
+                setValue={setChangePriority}
+              />
+
+              <Button title="Alterar" onClick={handleClickChange} />
+            </div>
+          </div>
+        ) : null}
       </section>
     </MainContainer>
   );

@@ -51,6 +51,10 @@ const SharedStyleWrapperTask = styled.section`
     transition: 0.2s;
   }
 
+  ul li div button:hover {
+    opacity: 0.8;
+  }
+
   .noTasks {
     display: inline-block;
     text-align: center;
@@ -60,16 +64,12 @@ const SharedStyleWrapperTask = styled.section`
     color: #068d06;
   }
 
-  .confirm:hover {
-    opacity: 0.8;
-  }
-
   .remove {
     color: #c4342d;
   }
 
-  .remove:hover {
-    opacity: 0.8;
+  .edit {
+    color: #0e4bef;
   }
 
   @keyframes animeLeft {
