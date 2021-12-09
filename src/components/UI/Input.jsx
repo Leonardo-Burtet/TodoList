@@ -6,6 +6,7 @@ const SharedStyleInput = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin-bottom: 10px;
 
   label {
     font-size: 25px;
@@ -16,6 +17,8 @@ const SharedStyleInput = styled.div`
     width: 65%;
     font-size: 1rem;
     padding: 2px;
+    border: 1px solid #141414;
+    border-radius: 2px;
   }
 
   @media (max-width: 600px) {

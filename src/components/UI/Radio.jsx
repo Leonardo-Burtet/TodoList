@@ -6,6 +6,7 @@ const SharedStyleRadio = styled.div`
   font-size: 20px;
   justify-content: space-between;
   width: 100%;
+  margin-bottom: 10px;
 
   p {
     font-size: 25px;

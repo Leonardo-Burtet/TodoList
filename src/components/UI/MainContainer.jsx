@@ -73,7 +73,7 @@ const SharedStyleMain = styled.main`
 
   .card .modal {
     max-width: 60vw;
-    height: 30vh;
+    height: 20vh;
     padding: 10px;
     min-width: 300px;
     background: rgb(255, 255, 255);
@@ -83,6 +83,9 @@ const SharedStyleMain = styled.main`
     align-items: center;
     justify-content: space-around;
     font-size: 1.4rem;
+  }
+
+  .card .modal input {
   }
 
   @keyframes animeLeft {
