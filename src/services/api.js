@@ -1,33 +1,38 @@
-export function TASK_GET(local, setTaskList) {
-  fetch(`/api/${local}`, {
-    method: 'GET',
-  })
-    .then((response) => response.json())
-    .then((json) => setTaskList(json));
+const axios = require('axios').default;
+
+export async function TASK_GET(local, setTaskList) {
+  try {
+    const response = await axios.get(`/api/${local}`);
+    setTaskList(response.data);
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 export function TASK_POST(local, body) {
-  fetch(`/api/${local}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(body),
-  });
+  try {
+    axios.post(`/api/${local}`, {
+      ...body,
+    });
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 export function TASK_PUT(target, body) {
-  fetch(`/api/pending-tasks/${target}`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(body),
-  });
+  try {
+    axios.put(`/api/pending-tasks/${target}`, {
+      ...body,
+    });
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 export function TASK_DELETE(target) {
-  fetch(`/api/pending-tasks/${target}`, {
-    method: 'DELETE',
-  });
+  try {
+    axios.delete(`/api/pending-tasks/${target}`);
+  } catch (err) {
+    console.log(err);
+  }
 }
