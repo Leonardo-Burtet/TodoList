@@ -1,5 +1,5 @@
 import Root from './screens/Root';
-import './miragejs/index';
+import './services/mirage';
 function App() {
   return <Root />;
 }

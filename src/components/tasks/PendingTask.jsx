@@ -1,6 +1,7 @@
 /* eslint-disable no-restricted-globals */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { TASK_DELETE, TASK_GET, TASK_POST, TASK_PUT } from '../../services/api';
 import Button from '../UI/Button';
 import Input from '../UI/Input';
 import MainContainer from '../UI/MainContainer';
@@ -20,9 +21,7 @@ const PendingTask = () => {
   }/${date.getMonth()}/${date.getFullYear()}`;
 
   React.useEffect(() => {
-    fetch('/api/pending-tasks')
-      .then((response) => response.json())
-      .then((json) => setTaskList(json));
+    TASK_GET('pending-tasks', setTaskList);
   }, []);
 
   function handleClickCard() {
@@ -34,34 +33,23 @@ const PendingTask = () => {
       (item) => item.id === currentTarget.value
     );
 
-    fetch('/api/completed-task', {
-      method: 'POST',
-      body: JSON.stringify({
-        text: taskFinish[0].text,
-        prioridade: taskFinish[0].prioridade,
-        date: dateTask,
-      }),
+    TASK_POST('completed-task', {
+      text: taskFinish[0].text,
+      prioridade: taskFinish[0].prioridade,
+      date: dateTask,
     });
 
-    fetch(`/api/pending-tasks/${currentTarget.value}`, {
-      method: 'DELETE',
-    });
+    TASK_DELETE(currentTarget.value);
 
-    fetch('/api/pending-tasks')
-      .then((response) => response.json())
-      .then((json) => setTaskList(json));
+    TASK_GET('pending-tasks', setTaskList);
   }
 
-  function handleClickRemove({ currentTarget }) {
+  async function handleClickRemove({ currentTarget }) {
     const del = confirm('Você tem certeza que deseja excluir a tarefa ?');
     if (del === true) {
-      fetch(`/api/pending-tasks/${currentTarget.value}`, {
-        method: 'DELETE',
-      });
+      TASK_DELETE(currentTarget.value);
 
-      fetch('/api/pending-tasks')
-        .then((response) => response.json())
-        .then((json) => setTaskList(json));
+      TASK_GET('pending-tasks', setTaskList);
     }
   }
 
@@ -76,20 +64,14 @@ const PendingTask = () => {
   }
 
   function handleClickChange() {
-    fetch(`/api/pending-tasks/${target}`, {
-      method: 'PUT',
-      Head: ['Content-Type:application/json'],
-      body: JSON.stringify({
-        text: changeTask,
-        prioridade: changePriority,
-      }),
+    TASK_PUT(target, {
+      text: changeTask,
+      prioridade: changePriority,
     });
 
-    fetch('/api/pending-tasks')
-      .then((response) => response.json())
-      .then((json) => setTaskList(json))
-      .then(handleClickCard());
+    TASK_GET('pending-tasks', setTaskList);
 
+    handleClickCard();
     setChangeTask('');
     setChangePriority('');
   }
