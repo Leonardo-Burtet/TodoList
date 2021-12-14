@@ -3,6 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { TASK_DELETE, TASK_GET, TASK_POST, TASK_PUT } from '../../services/api';
 import Button from '../UI/Button';
+import Card from '../UI/Card';
 import Input from '../UI/Input';
 import MainContainer from '../UI/MainContainer';
 import Nav from '../UI/Nav';
@@ -44,7 +45,7 @@ const PendingTask = () => {
     TASK_GET('pending-tasks', setTaskList);
   }
 
-  async function handleClickRemove({ currentTarget }) {
+  function handleClickRemove({ currentTarget }) {
     const del = confirm('Você tem certeza que deseja excluir a tarefa ?');
     if (del === true) {
       TASK_DELETE(currentTarget.value);
@@ -103,29 +104,25 @@ const PendingTask = () => {
         />
 
         {card === true ? (
-          <div className="card">
-            <div className="modal">
-              <p>Altere a tarefa</p>
-              <div>
-                <Input
-                  id="Tarefa"
-                  label="Tarefa"
-                  value={changeTask}
-                  setValue={setChangeTask}
-                  placeholder={`${changeTask}`}
-                  required
-                />
-
-                <Radio
-                  options={['Alta', 'Media', 'Baixa']}
-                  value={changePriority}
-                  setValue={setChangePriority}
-                />
-
-                <Button title="Alterar" onClick={handleClickChange} />
-              </div>
+          <Card>
+            <p>Altere a tarefa</p>
+            <div className="form">
+              <Input
+                id="Tarefa"
+                label="Tarefa"
+                value={changeTask}
+                setValue={setChangeTask}
+                placeholder={`${changeTask}`}
+                required
+              />
+              <Radio
+                options={['Alta', 'Media', 'Baixa']}
+                value={changePriority}
+                setValue={setChangePriority}
+              />
+              <Button title="Alterar" onClick={handleClickChange} />
             </div>
-          </div>
+          </Card>
         ) : null}
       </section>
     </MainContainer>

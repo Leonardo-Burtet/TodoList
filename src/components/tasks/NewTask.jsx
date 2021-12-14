@@ -5,6 +5,7 @@ import Radio from '../UI/Radio';
 import Input from '../UI/Input';
 import Nav from '../UI/Nav';
 import MainContainer from '../UI/MainContainer';
+import Card from '../UI/Card';
 
 const NewTask = () => {
   const [prioridade, setPrioridade] = React.useState('');
@@ -69,17 +70,15 @@ const NewTask = () => {
         </form>
       </section>
       {card === true ? (
-        <div className="card">
-          <div className="modal">
-            <p>Deseja adicionar mais uma tarefa?</p>
-            <div>
-              <Button title="Sim" onClick={handleClickCard} />
-              <NavLink to="/tarefas-pendentes">
-                <Button title="Não" />
-              </NavLink>
-            </div>
+        <Card>
+          <p>Deseja adicionar mais uma tarefa?</p>
+          <div>
+            <Button title="Sim" onClick={handleClickCard} />
+            <NavLink to="/tarefas-pendentes">
+              <Button title="Não" />
+            </NavLink>
           </div>
-        </div>
+        </Card>
       ) : null}
     </MainContainer>
   );
